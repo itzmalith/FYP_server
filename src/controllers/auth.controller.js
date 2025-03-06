@@ -82,15 +82,15 @@ const requestPasswordReset = asyncHanlder(async (req, res) => {
     
     const mailOptions = {
         to: user.email,
-        subject: "Sri Cuisine password reset",
+        subject: "I device insight password reset",
         html: `
             <p>Hi ${user.userName}, </p>
-            <p>You have requested to change your digiRecruiter password. 
+            <p>You have requested to change your I device insight password. 
                Please enter the following OTP to reset your password:</p>
             <p>OTP: ${otp}</p> 
             <p>This OTP is valid for 24 hours.</p> 
             <p>Thank You,</p>
-            <p>DigiRecruiters</p>`
+            <p>I-device-insight</p>`
     };
 
 

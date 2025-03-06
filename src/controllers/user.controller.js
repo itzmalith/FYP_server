@@ -5,7 +5,6 @@ const i18n = require("i18n");
 const logger = require('../utils/log4jsutil');
 const AppError = require('../utils/app.error');
 const Status = require('../utils/status.js');
-const constants = require('../utils/constants.js')
 const mongoose = require('mongoose');
 const path = require('path');
 const mime = require('mime-types')
@@ -111,12 +110,7 @@ const editUser = asyncHandler(async (req, res) => {
     let updates = {
         ...(req.body.userName !== null && req.body.userName != "" && { userName: req.body.userName }),
         ...(req.body.email !== null && req.body.email != "" && { email: req.body.email }),
-        ...(req.body.allergens && Array.isArray(req.body.allergens) && { allergens: req.body.allergens }) 
     }
-
-    updates.age = req.body.age;
-    updates.weight = req.body.weight;
-    updates.height = req.body.height;
 
     const userNameRegex = /^[^\s]{4,100}$/;
         if (!userNameRegex.test(updates.userName)) {
@@ -174,112 +168,6 @@ const deleteUser = asyncHandler(async (req, res) => {
     logger.trace("[userController] :: deleteUser() : End");
 })
 
-// @desc    Get user's CV
-// @route   GET /api/v1/users/:id/cv
-const getUserCv = asyncHandler(async (req, res) => {
-    logger.trace('[userController] :: getUserCv() : Start');
-    
-    const userId = req.params.id;
-    const user = await User.findById(userId).populate('cv').select('-password');
-
-    if (!user) {
-        logger.error('[userController] :: getUserCv() : User not found');
-        throw new AppError(404, 'User not found');
-    }
-
-    res.status(200).json(user.cv);
-    logger.trace('[userController] :: getUserCv() : End');
-});
-
-// @desc    Get user's Organization
-// @route   GET /api/v1/users/:id/organization
-const getUserOrganization = asyncHandler(async (req, res) => {
-    logger.trace('[userController] :: getUserOrganization() : Start');
-    
-    const userId = req.params.id;
-    const user = await User.findById(userId).populate('organization').select('-password');
-
-    if (!user) {
-        logger.error('[userController] :: getUserOrganization() : User not found');
-        throw new AppError(404, 'User not found');
-    }
-
-    res.status(200).json(user.organization);
-    logger.trace('[userController] :: getUserOrganization() : End');
-});
-
-// @desc    Create user CV
-// @route   POST /api/v1/users/:id/cv
-// @access  Private
-const createUserCv = asyncHandler(async (req, res) => {
-    logger.trace('[userController] :: createUserCv() : Start');
-    if (!req.body) {
-        logger.error('[userController] :: createUserCv() : Request body is null');
-        throw new AppError(400, i18n.__('BAD_REQUEST'));
-    }
-    
-    const userId = req.params.id;
-    const existingCv = await Cv.findOne({ user: userId });
-    
-    if (existingCv) {
-        logger.error('[userController] :: createUserCv() : CV already exists for user');
-        throw new AppError(400, i18n.__('DUPLICATE_CV'));
-    }
-
-    const newCv = await Cv.create({ user: userId, ...req.body });
-    
-    if (!newCv) {
-        logger.error('[userController] :: createUserCv() : CV creation failed');
-        throw new AppError(500, i18n.__('APPLICATION_ERROR'));
-    }
-
-    res.status(201).json(newCv);
-    logger.trace('[userController] :: createUserCv() : End');
-});
-
-// @desc    Update user CV
-// @route   PUT /api/v1/users/:id/cv
-// @access  Private
-const updateUserCv = asyncHandler(async (req, res) => {
-    logger.trace('[userController] :: updateUserCv() : Start');
-    if (!req.body) {
-        logger.error('[userController] :: updateUserCv() : Request body is null');
-        throw new AppError(400, i18n.__('BAD_REQUEST'));
-    }
-    
-    const userId = req.params.id;
-    const updatedCv = await Cv.findOneAndUpdate(
-        { user: userId },
-        req.body,
-        { new: true, upsert: true }
-    );
-    
-    if (!updatedCv) {
-        logger.error('[userController] :: updateUserCv() : Failed to update CV');
-        throw new AppError(500, 'Failed to update CV');
-    }
-    
-    res.status(200).json(updatedCv);
-    logger.trace('[userController] :: updateUserCv() : End');
-});
-
-
-// @desc    Delete user CV
-// @route   DELETE /api/v1/users/:id/cv
-const deleteUserCv = asyncHandler(async (req, res) => {
-    logger.trace('[userController] :: deleteUserCv() : Start');
-    
-    const userId = req.params.id;
-    const result = await Cv.deleteOne({ user: userId });
-    
-    if (!result.deletedCount) {
-        logger.error('[userController] :: deleteUserCv() : No CV found');
-        throw new AppError(404, 'CV not found');
-    }
-    
-    res.status(200).json({ message: 'CV deleted successfully' });
-    logger.trace('[userController] :: deleteUserCv() : End');
-});
 
 
 
@@ -289,10 +177,4 @@ module.exports = {
     deleteUser,
     getUsers,
     getUserById,
-    getUserCv,
-    getUserOrganization,
-    createUserCv,
-    updateUserCv,
-    deleteUserCv
-
 }
