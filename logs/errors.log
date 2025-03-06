@@ -1,0 +1,26 @@
+[2025-02-21T18:21:04.114] [ERROR] default - Error loading model:  Error: Path /Users/malithlekamge/Documents/DevProjects/SellYourIphone/FYP-BACKEND/FYP_server/src/models/mobilenetv2/model.json does not exist: loading failed
+    at /Users/malithlekamge/Documents/DevProjects/SellYourIphone/FYP-BACKEND/FYP_server/node_modules/@tensorflow/tfjs-node/dist/io/file_system.js:69:23
+[2025-02-21T18:25:19.472] [ERROR] default - Error loading model:  Error: Path /Users/malithlekamge/Documents/DevProjects/SellYourIphone/FYP-BACKEND/FYP_server/src/models/mobilenetv2/model.json does not exist: loading failed
+    at /Users/malithlekamge/Documents/DevProjects/SellYourIphone/FYP-BACKEND/FYP_server/node_modules/@tensorflow/tfjs-node/dist/io/file_system.js:69:23
+[2025-02-21T18:26:30.024] [ERROR] default - Error loading model:  Error: Path /Users/malithlekamge/Documents/DevProjects/SellYourIphone/FYP-BACKEND/FYP_server/src/models/mobilenetv2/model.json does not exist: loading failed
+    at /Users/malithlekamge/Documents/DevProjects/SellYourIphone/FYP-BACKEND/FYP_server/node_modules/@tensorflow/tfjs-node/dist/io/file_system.js:69:23
+[2025-02-21T18:47:12.316] [ERROR] default - Error loading model:  TypeError: Cannot read properties of undefined (reading 'model_config')
+    at /Users/malithlekamge/Documents/DevProjects/SellYourIphone/FYP-BACKEND/FYP_server/node_modules/@tensorflow/tfjs-layers/dist/tf-layers.node.js:25779:38
+    at step (/Users/malithlekamge/Documents/DevProjects/SellYourIphone/FYP-BACKEND/FYP_server/node_modules/@tensorflow/tfjs-layers/dist/tf-layers.node.js:159:27)
+    at Object.next (/Users/malithlekamge/Documents/DevProjects/SellYourIphone/FYP-BACKEND/FYP_server/node_modules/@tensorflow/tfjs-layers/dist/tf-layers.node.js:108:53)
+    at fulfilled (/Users/malithlekamge/Documents/DevProjects/SellYourIphone/FYP-BACKEND/FYP_server/node_modules/@tensorflow/tfjs-layers/dist/tf-layers.node.js:89:28)
+[2025-02-21T18:48:33.087] [ERROR] default - Error loading model:  TypeError: Cannot read properties of undefined (reading 'model_config')
+    at /Users/malithlekamge/Documents/DevProjects/SellYourIphone/FYP-BACKEND/FYP_server/node_modules/@tensorflow/tfjs-layers/dist/tf-layers.node.js:25779:38
+    at step (/Users/malithlekamge/Documents/DevProjects/SellYourIphone/FYP-BACKEND/FYP_server/node_modules/@tensorflow/tfjs-layers/dist/tf-layers.node.js:159:27)
+    at Object.next (/Users/malithlekamge/Documents/DevProjects/SellYourIphone/FYP-BACKEND/FYP_server/node_modules/@tensorflow/tfjs-layers/dist/tf-layers.node.js:108:53)
+    at fulfilled (/Users/malithlekamge/Documents/DevProjects/SellYourIphone/FYP-BACKEND/FYP_server/node_modules/@tensorflow/tfjs-layers/dist/tf-layers.node.js:89:28)
+[2025-02-21T22:51:51.883] [ERROR] default - Error loading model:  TypeError: Cannot read properties of undefined (reading 'model_config')
+    at /Users/malithlekamge/Documents/DevProjects/SellYourIphone/FYP-BACKEND/FYP_server/node_modules/@tensorflow/tfjs-layers/dist/tf-layers.node.js:25779:38
+    at step (/Users/malithlekamge/Documents/DevProjects/SellYourIphone/FYP-BACKEND/FYP_server/node_modules/@tensorflow/tfjs-layers/dist/tf-layers.node.js:159:27)
+    at Object.next (/Users/malithlekamge/Documents/DevProjects/SellYourIphone/FYP-BACKEND/FYP_server/node_modules/@tensorflow/tfjs-layers/dist/tf-layers.node.js:108:53)
+    at fulfilled (/Users/malithlekamge/Documents/DevProjects/SellYourIphone/FYP-BACKEND/FYP_server/node_modules/@tensorflow/tfjs-layers/dist/tf-layers.node.js:89:28)
+[2025-02-21T23:08:01.923] [ERROR] default - Error loading model:  TypeError: Cannot read properties of undefined (reading 'model_config')
+    at /Users/malithlekamge/Documents/DevProjects/SellYourIphone/FYP-BACKEND/FYP_server/node_modules/@tensorflow/tfjs-layers/dist/tf-layers.node.js:25779:38
+    at step (/Users/malithlekamge/Documents/DevProjects/SellYourIphone/FYP-BACKEND/FYP_server/node_modules/@tensorflow/tfjs-layers/dist/tf-layers.node.js:159:27)
+    at Object.next (/Users/malithlekamge/Documents/DevProjects/SellYourIphone/FYP-BACKEND/FYP_server/node_modules/@tensorflow/tfjs-layers/dist/tf-layers.node.js:108:53)
+    at fulfilled (/Users/malithlekamge/Documents/DevProjects/SellYourIphone/FYP-BACKEND/FYP_server/node_modules/@tensorflow/tfjs-layers/dist/tf-layers.node.js:89:28)
