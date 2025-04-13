@@ -30,15 +30,9 @@ const authenticate = asyncHanlder(async (req, res) => {
   
   if (user && (await bcrypt.compare(password, user.password))) {
     
-    if (user.profileImage) {
-      try {
-        user.profileImage = await s3Util.generateProfileImagePresignedURL(user.profileImage);
-      } catch (err) {
-        // handle error 
-      }
-    }
-    
+   
     res.status(200).json({
+      message: "Login successfully",  
       token: generateToken(user._id),
       user: { ...user.toObject(), password: undefined },
       status: constants.USER_STATUS.ACTIVE

@@ -11,6 +11,7 @@ const mime = require('mime-types')
 const { v1: uuidv1 } = require('uuid');
 const config = require('config');
 const basicUtil = require("../utils/basic.util.js");
+const Role = require('../models/role.model.js')
 
 
 // @desc    Authenticate a user
@@ -50,9 +51,9 @@ const getUserById = asyncHandler(async (req, res, next) => {
 const createUser = asyncHandler(async (req, res) => {
     logger.trace("[userController] :: createUser() : Start");
 
-    const { userName, email, password } = req.body
+    const { userName, email, password , role } = req.body
 
-    if ( !userName || !email || !password ) {
+    if ( !userName || !email || !password) {
         logger.error("[userController] :: createUser() : Missing required field");
         throw new AppError(400, i18n.__("ERROR_MISSING_REQUIRED_FIELDS"))
     }
@@ -86,11 +87,25 @@ const createUser = asyncHandler(async (req, res) => {
         userName: req.body.userName,
         email: req.body.email,
         password: hashsedPassword,
+        role: role,
         status: "NEW"
     })
+    const userResponse = ({
+        id: user._id,
+        userName: user.userName,
+        email: user.email,
+        role: user.role,
+        status: user.status,
+        createdAt: user.createdAt,
+        updatedAt: user.updatedAt
 
-  
-    
+    })
+
+    res.status(200).json({
+        message: "User created successfully",
+        userResponse,
+    });
+
     logger.trace("[userController] :: createUser() : End");
 })
 

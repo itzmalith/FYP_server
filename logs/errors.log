@@ -24,3 +24,8 @@
     at step (/Users/malithlekamge/Documents/DevProjects/SellYourIphone/FYP-BACKEND/FYP_server/node_modules/@tensorflow/tfjs-layers/dist/tf-layers.node.js:159:27)
     at Object.next (/Users/malithlekamge/Documents/DevProjects/SellYourIphone/FYP-BACKEND/FYP_server/node_modules/@tensorflow/tfjs-layers/dist/tf-layers.node.js:108:53)
     at fulfilled (/Users/malithlekamge/Documents/DevProjects/SellYourIphone/FYP-BACKEND/FYP_server/node_modules/@tensorflow/tfjs-layers/dist/tf-layers.node.js:89:28)
+[2025-03-06T12:53:54.163] [ERROR] default - [authController] :: authenticate() : Unauthorized user
+[2025-03-06T12:55:46.271] [ERROR] default - [authController] :: authenticate() : Unauthorized user
+[2025-03-06T12:55:49.335] [ERROR] default - [authController] :: authenticate() : Unauthorized user
+[2025-03-06T13:38:01.327] [ERROR] default - [userController] :: createUser() : Username already exists
+[2025-03-07T06:21:10.117] [ERROR] default - [authController] :: authenticate() : Unauthorized user
